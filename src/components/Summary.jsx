@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import Button from "./Button";
+import SavePurchase from "./SavePurchase";
 
 export default function Summary() {
     const [total, setTotal] = useState(0);
@@ -24,14 +26,7 @@ export default function Summary() {
             return;
         }
 
-        const checkoutData = {
-            username,
-            total,
-        };
-
-        localStorage.setItem("checkoutData", JSON.stringify(checkoutData));
-        alert("Datos guardados correctamente.");
-        setUsername('');
+        SavePurchase({username, total});
     };
 
     return (
@@ -50,9 +45,9 @@ export default function Summary() {
                         placeholder="Ingresa tu nombre"
                     />
                 </label>
-                <button type="submit" className="bg-green-600 text-white rounded p-2 hover:bg-green-700">
+                <Button type="submit">
                     Guardar Compra
-                </button>
+                </Button>
             </form>
         </div>
     );
