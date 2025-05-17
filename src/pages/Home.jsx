@@ -45,6 +45,8 @@ export default function Home() {
                 ) :  (
                     <ItemList items={cartItems} onDelete={handleDeleteFromCart} showDeleteButton={true} />
                 )}
+            <br />
+            <Link to="/checkout" className="text-blue-600 hover:underline">Ir al Carrito 🛒</Link>
             </div>
 
             <div className="mt-8">
